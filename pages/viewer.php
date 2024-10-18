@@ -14,11 +14,11 @@ function convertOctets ($octet, $round) {
 		? round($octet * 10 ** $round) / 10 ** $round
 		: $octet;
 
-	return str_replace(".", ",", sprintf('%s %s', $number, $unite_spec[$count]))
+	return str_replace(".", ",", sprintf('%s %s', $number, $unite_spec[$count]));
 }
 
 $files = array_filter(iterator_to_array(new DirectoryIterator('./')), fn($fileInfo) =>
-	!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array($fileInfo->getExtension(), ['php', 'html'])
+	!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array($fileInfo->getExtension(), ['php', 'html']);
 );
 
 $files = array_map(fn($fileInfo) => (object) [

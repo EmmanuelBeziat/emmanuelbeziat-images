@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "🖼️ Image management",
   "scripts": {
+		"create-symlinks": "bash ./create-symlinks.sh"
   },
   "repository": {
     "type": "git",
