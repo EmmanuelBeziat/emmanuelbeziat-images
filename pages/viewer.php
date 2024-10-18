@@ -18,7 +18,7 @@ function convertOctets ($octet, $round) {
 }
 
 $files = array_filter(iterator_to_array(new DirectoryIterator('./')), fn($fileInfo) =>
-	!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array($fileInfo->getExtension(), ['php', 'html']);
+	!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array($fileInfo->getExtension(), ['php', 'html'])
 );
 
 $files = array_map(fn($fileInfo) => (object) [
