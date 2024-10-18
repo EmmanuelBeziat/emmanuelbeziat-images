@@ -1,0 +1,117 @@
+::selection {
+	background: var(--color-blue);
+	color: var(--color-text);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+}
+
+:root {
+	scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:root {
+		scroll-behavior: smooth;
+	}
+
+	:focus {
+		transition: outline-offset var(--transition-fast) ease;
+		outline-offset: 5px;
+	}
+}
+
+*,Z
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  margin: 0;
+	background: var(--color-background);
+	color: var(--color-text);
+	font: 400 var(--font-size-base)/1.5 var(--font-stack-common);
+
+  --color-thumb: var(--color-green);
+
+  &::-webkit-scrollbar-track {
+		background: none;
+	}
+
+	&::-webkit-scrollbar {
+		width: 12px;
+		background: none;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border: 2px solid var(--color-background);
+		border-radius: .5rem;
+		transition: var(--transition-fast) ease-in-out;
+		background: var(--color-thumb);
+	}
+}
+
+a {
+	background-color: transparent;
+	color: var(--color-blue);
+	text-decoration: none;
+	transition: var(--transition-xfast) ease-in-out;
+
+  &:is(:hover, :focus) {
+    color: var(--color-yellow);
+    outline: none;
+  }
+
+  &:not([href]):not([class]),
+  &:not([href]):not([class]):hover {
+    color: inherit;
+  }
+}
+
+i[lang] {
+	font-style: normal;
+}
+
+img,
+svg {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+h1, h2, h3, h4 {
+	font: 400 var(--title-size)/1 var(--font-stack-heading);
+	color: var(--title-color);
+	margin: 1em 0 .5em;
+}
+
+h1 {
+	--title-size: var(--font-size-heading-1);
+	--title-color: var(--color-green);
+}
+
+h2 {
+	--title-size: var(--font-size-heading-2);
+	--title-color: var(--color-green);
+}
+
+h3 {
+	--title-size: var(--font-size-heading-3);
+	--title-color: var(--color-yellow);
+	line-height: 1.5;
+}
+
+:where(button, [type=button], [type=reset], [type=submit]):not(:disabled) {
+	cursor: pointer;
+}
+
+.site {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  display: grid;
+}

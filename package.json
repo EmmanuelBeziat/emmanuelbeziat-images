@@ -1,0 +1,24 @@
+{
+  "name": "emmanuelbeziat-images",
+  "version": "1.0.0",
+  "description": "🖼️ Image management",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/EmmanuelBeziat/emmanuelbeziat-images.git"
+  },
+  "keywords": [
+    "php",
+    "images"
+  ],
+  "author": {
+		"name": "Emmanuel Béziat",
+		"email": "contact@emmanuelbeziat.com"
+	},
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EmmanuelBeziat/emmanuelbeziat-images/issues"
+  },
+  "homepage": "https://github.com/EmmanuelBeziat/emmanuelbeziat-images#readme"
+}

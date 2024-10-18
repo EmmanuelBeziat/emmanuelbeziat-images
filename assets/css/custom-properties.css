@@ -1,0 +1,50 @@
+:root {
+	/* Colors */
+	--color-background: #1e192b;
+	--color-text: #eeeeee;
+
+	--color-subwhite: #f9fad3;
+	--color-green: #c3e88d;
+	--color-blue: #4eb0e4;
+	--color-violet: #a48aec;
+	--color-yellow: #ffcb6b;
+	--color-red: #ec4185;
+	--color-black: var(--color-background-light);
+
+	--color-separator: var(--color-background-light);
+
+	--color-background-light: #282139;
+  --color-background-lighter: #4f4271;
+  --color-background-dark: #1b1627;
+  --color-background-darker: #171320;
+
+	/* fonts */
+	--font-stack-common: "Source Sans 3", system-ui, "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif;
+	--font-stack-heading: "Yanone Kaffeesatz", "Source Sans 3", system-ui, "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif;
+	--font-stack-code: "JetBrains Mono", monospace;
+
+	--font-size-base: 16px;
+	--font-size-heading-1: 3.815rem;
+	--font-size-heading-2: 3.052rem;
+	--font-size-heading-3: 2.441rem;
+	--font-size-heading-4: 1.953rem;
+	--font-size-heading-5: 1.563rem;
+	--font-size-heading-6: 1.25rem;
+
+	--transition-xfast: .2s;
+	--transition-fast: .25s;
+	--transition-normal: .3s;
+	--transition-slow: .5s;
+	--transition-xslow: .75s;
+
+	--ease-back-out: cubic-bezier(.295, 1.750, .690, .900);
+
+	@media (width <= 768px) {
+		--font-size-heading-1: 2.986rem;
+		--font-size-heading-2: 2.488rem;
+		--font-size-heading-3: 2.074rem;
+		--font-size-heading-4: 1.728rem;
+		--font-size-heading-5: 1.44rem;
+		--font-size-heading-6: 1.2rem;
+	}
+}

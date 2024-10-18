@@ -1,0 +1,39 @@
+body {
+	text-align: center;
+}
+
+h1 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+.site {
+	align-items: center;
+	justify-content: center;
+}
+
+.main {
+	transform: translateY(-25%);
+}
+
+.img-container {
+	margin-block: 2rem;
+	display: inline-grid;
+  grid-template-areas: "Picture";
+	border-radius: 8px;
+	overflow: hidden;
+
+	:where(img, svg) {
+		grid-area: picture;
+		justify-self: center;
+		align-self: center;
+	}
+
+	svg {
+		width: 5rem;
+		aspect-ratio: 1;
+	}
+}

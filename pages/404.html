@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="noindex">
+		<link rel="shortcut icon" href="https://www.emmanuelbeziat.com/favicons/favicon-16x16.png">
+
+		<title>Emmanuel Béziat :: Mais qu’est-ce que vous glandez ?</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Yanone+Kaffeesatz:wght@200..700&display=swap">
+		<link rel="stylesheet" href="../assets/css/custom-properties.css">
+		<link rel="stylesheet" href="../assets/css/base.css">
+		<link rel="stylesheet" href="../assets/css/404.css">
+	</head>
+	<body>
+		<div class="site">
+			<main class="main">
+				<h1>Ce lien n’existe pas</h1>
+				<div class="img-container">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+						<g>
+							<path d="M50 15A35 35 0 1 0 74.74873734152916 25.251262658470843" fill="none" stroke="#fff" stroke-width="12"></path>
+							<path d="M49 3L49 27L61 15L49 3" fill="#fff"></path>
+							<animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+						</g>
+					</svg>
+				</div>
+				<p>Vous pouvez essayez de chercher quelque chose ailleurs. Sur mon <a href="https://www.emmanuelbeziat.com">magnifique site perso</a>, par exemple.</p>
+			</main>
+		</div>
+
+		<script>
+			const gifs = [
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott01.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott02.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott03.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott04.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott05.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott06.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott07.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott08.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott09.webp',
+				'https://images.emmanuelbeziat.com/site/errors/kaamelott10.webp',
+			]
+
+			document.addEventListener('DOMContentLoaded', () => {
+				const gif = gifs[gifs.length * Math.random() | 0]
+				const img = document.createElement('img')
+				img.setAttribute('src', gif)
+				img.setAttribute('alt', 'Kaamelott')
+				img.setAttribute('loading', 'lazy')
+				document.querySelector('.img-container').appendChild(img)
+			})
+		</script>
+	</body>
+</html>
