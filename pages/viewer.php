@@ -29,7 +29,7 @@ $files = array_map(fn($fileInfo) => (object) [
 
 asort($files);
 
-$public_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/').
+$public_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 ?>
 <!doctype html>
 <html lang="fr">
