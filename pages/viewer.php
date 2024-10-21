@@ -57,7 +57,7 @@ if (empty($files)) {
 		<div class="site">
 			<main class="main gallery">
 				<?php foreach ($files as $file) : ?>
-				<a href="<?= $file->path ?>" class="image">
+				<a href="<?= $file->name ?>" class="image">
 					<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy">
 					<div class="image-infos">
 						<?= $file->name ?> <br>(<?= $file->size ?>)
