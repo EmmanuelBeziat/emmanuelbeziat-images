@@ -43,9 +43,9 @@ $public_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Yanone+Kaffeesatz:wght@200..700&display=swap">
-		<link rel="stylesheet" href="<?= $public_path ?>/assets/css/custom-properties.css">
-		<link rel="stylesheet" href="<?= $public_path ?>/assets/css/base.css">
-		<link rel="stylesheet" href="<?= $public_path ?>/assets/css/viewer.css">
+		<link rel="stylesheet" href="/assets/css/custom-properties.css">
+		<link rel="stylesheet" href="/assets/css/base.css">
+		<link rel="stylesheet" href="/assets/css/viewer.css">
 	</head>
 
 	<body>
