@@ -28,8 +28,6 @@ $files = array_map(fn($fileInfo) => (object) [
 ], $files);
 
 asort($files);
-
-$public_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 ?>
 <!doctype html>
 <html lang="fr">
@@ -51,14 +49,21 @@ $public_path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 	<body>
 		<div class="site">
 			<main class="main">
-				<?php foreach ($files as $file) : ?>
-				<a href="<?= $file->path ?>" class="image">
-					<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy">
-					<div class="image-infos">
-						<?= $file->name ?> <br>(<?= $file->size ?>)
+				<?php if (empty($files)): ?>
+					<h1 class="h2">Il n’y a rien à voir ici</h2>
+
+				<?php else : ?>
+					<div class="gallery">
+						<?php foreach ($files as $file) : ?>
+						<a href="<?= $file->path ?>" class="image">
+							<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy">
+							<div class="image-infos">
+								<?= $file->name ?> <br>(<?= $file->size ?>)
+							</div>
+						</a>
+						<?php endforeach; ?>
 					</div>
-				</a>
-				<?php endforeach; ?>
+				<?php endif; ?>
 			</main>
 		</div>
 	</body>
