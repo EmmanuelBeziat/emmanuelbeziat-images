@@ -16,15 +16,19 @@ function convertOctets ($octet, $round) {
 }
 
 $directory = dirname($_SERVER['SCRIPT_FILENAME']);
-$files = array_filter(iterator_to_array(new DirectoryIterator($directory)), fn($fileInfo) =>
-	!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array($fileInfo->getExtension(), ['php', 'html'])
-);
+if (is_dir($directory) && is_readable($directory)) exit;
+	$allItems = new DirectoryIterator($directory);
+	$files = [];
 
-$files = array_map(fn($fileInfo) => (object) [
-	'path' => htmlspecialchars($fileInfo->getPathname()),
-	'name' => htmlspecialchars($fileInfo->getFilename()),
-	'size' => convertOctets($fileInfo->getSize(), 2)
-], $files);
+foreach ($allItems as $fileInfo) {
+	if (!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array(strtolower($fileInfo->getExtension()), ['php', 'html']) ) {
+		$files[] = (object) [
+			'path' => htmlspecialchars($fileInfo->getPathname()),
+			'name' => htmlspecialchars($fileInfo->getFilename()),
+			'size' => convertOctets($fileInfo->getSize(), 2)
+		];
+	}
+}
 
 asort($files);
 
