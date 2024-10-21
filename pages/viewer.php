@@ -10,14 +10,13 @@ function convertOctets ($octet, $round) {
 		$octet /= 1024;
 	}
 
-	$number = $round >= 0
-		? round($octet * 10 ** $round) / 10 ** $round
-		: $octet;
+	$number = $round >= 0 ? round($octet * 10 ** $round) / 10 ** $round : $octet;
 
 	return str_replace(".", ",", sprintf('%s %s', $number, $unite_spec[$count]));
 }
 
-$files = array_filter(iterator_to_array(new DirectoryIterator('./')), fn($fileInfo) =>
+$directory = dirname($_SERVER['SCRIPT_FILENAME'])
+$files = array_filter(iterator_to_array(new DirectoryIterator($directory)), fn($fileInfo) =>
 	!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array($fileInfo->getExtension(), ['php', 'html'])
 );
 
@@ -28,6 +27,11 @@ $files = array_map(fn($fileInfo) => (object) [
 ], $files);
 
 asort($files);
+
+if (empty($files)) {
+	header("HTTP/1.0 404 Not Found");
+	exit;
+}
 ?>
 <!doctype html>
 <html lang="fr">
@@ -48,22 +52,15 @@ asort($files);
 
 	<body>
 		<div class="site">
-			<main class="main">
-				<?php if (empty($files)): ?>
-					<h1 class="h2">Il n’y a rien à voir ici</h2>
-
-				<?php else : ?>
-					<div class="gallery">
-						<?php foreach ($files as $file) : ?>
-						<a href="<?= $file->path ?>" class="image">
-							<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy">
-							<div class="image-infos">
-								<?= $file->name ?> <br>(<?= $file->size ?>)
-							</div>
-						</a>
-						<?php endforeach; ?>
+			<main class="main gallery">
+				<?php foreach ($files as $file) : ?>
+				<a href="<?= $file->path ?>" class="image">
+					<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy">
+					<div class="image-infos">
+						<?= $file->name ?> <br>(<?= $file->size ?>)
 					</div>
-				<?php endif; ?>
+				</a>
+				<?php endforeach; ?>
 			</main>
 		</div>
 	</body>
