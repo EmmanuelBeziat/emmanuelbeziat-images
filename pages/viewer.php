@@ -16,9 +16,8 @@ function convertOctets ($octet, $round) {
 }
 
 $directory = dirname($_SERVER['SCRIPT_FILENAME']);
-if (is_dir($directory) && is_readable($directory)) exit;
-	$allItems = new DirectoryIterator($directory);
-	$files = [];
+$allItems = new DirectoryIterator($directory);
+$files = [];
 
 foreach ($allItems as $fileInfo) {
 	if (!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array(strtolower($fileInfo->getExtension()), ['php', 'html']) ) {
