@@ -1,6 +1,6 @@
 {
   "name": "emmanuelbeziat-images",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🖼️ Image management",
   "scripts": {
 		"create-symlinks": "bash create-symlinks.sh",

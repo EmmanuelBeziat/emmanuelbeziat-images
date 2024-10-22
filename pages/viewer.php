@@ -51,13 +51,19 @@ if (empty($files)) {
 		<link rel="stylesheet" href="/assets/css/custom-properties.css">
 		<link rel="stylesheet" href="/assets/css/base.css">
 		<link rel="stylesheet" href="/assets/css/viewer.css">
+		<script defer src="https://unpkg.com/@popperjs/core@2"></script>
+		<script defer src="https://unpkg.com/tippy.js@6"></script>
+		<script defer src="/assets/js/viewer.js"></script>
+		<script defer>
+			new Viewer(document.querySelectorAll('[data-action="copy"]'))
+		</script>
 	</head>
 
 	<body>
 		<div class="site">
 			<main class="main gallery">
 				<?php foreach ($files as $file) : ?>
-				<a href="<?= $file->name ?>" class="image">
+				<a href="<?= $file->name ?>" class="image" data-action="copy">
 					<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy">
 					<div class="image-infos">
 						<?= $file->name ?> <br>(<?= $file->size ?>)
