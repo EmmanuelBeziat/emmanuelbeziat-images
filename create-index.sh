@@ -5,7 +5,7 @@ SOURCE="$(pwd)/pages/viewer.php"  # Absolute path to the viewer.php file
 TARGET_DIR="$(pwd)/media"          # Absolute path to the media directory
 
 # Find all directories in the target directory, excluding .well-known, and create or update index.php
-find "$TARGET_DIR" -type d -not -path "$TARGET_DIR/.well-known/*" -exec sh -c '
+find "$TARGET_DIR" -type d -not -path "$TARGET_DIR/.well-known/*" -exec bash -c '
 	for dir; do
 		INDEX_FILE="$dir/index.php"
 		NEW_CONTENT="<?php include \"$0\"; ?>"
