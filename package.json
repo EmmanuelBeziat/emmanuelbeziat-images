@@ -3,8 +3,7 @@
   "version": "1.0.2",
   "description": "🖼️ Image management",
   "scripts": {
-		"create-symlinks": "bash create-symlinks.sh",
-		"create-index": "bash create-index.sh"
+		"optimize": ""
   },
   "repository": {
     "type": "git",
