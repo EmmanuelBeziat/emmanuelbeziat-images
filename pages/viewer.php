@@ -51,6 +51,12 @@ if (empty($files)) {
 		<link rel="stylesheet" href="/assets/css/custom-properties.css">
 		<link rel="stylesheet" href="/assets/css/base.css">
 		<link rel="stylesheet" href="/assets/css/viewer.css">
+		<link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png?v=1" sizes="96x96">
+		<link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg?v=1">
+		<link rel="shortcut icon" href="assets/favicons/favicon.ico?v=1">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png?v=1">
+		<meta name="apple-mobile-web-app-title" content="EB::Images">
+		<link rel="manifest" href="assets/favicons/site.webmanifest">
 		<script defer src="https://unpkg.com/@popperjs/core@2"></script>
 		<script defer src="https://unpkg.com/tippy.js@6"></script>
 		<script defer src="/assets/js/viewer.js"></script>
