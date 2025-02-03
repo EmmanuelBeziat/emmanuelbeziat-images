@@ -19,7 +19,7 @@
 	}
 }
 
-*,Z
+*,
 *::before,
 *::after {
 	box-sizing: inherit;
