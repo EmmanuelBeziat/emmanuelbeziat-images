@@ -3,7 +3,8 @@
   "version": "1.0.2",
   "description": "🖼️ Image management",
   "scripts": {
-		"optimize": ""
+    "lint:style": "stylelint assets/css/*.css --fix",
+    "optimize": ""
   },
   "repository": {
     "type": "git",
@@ -14,12 +15,16 @@
     "images"
   ],
   "author": {
-		"name": "Emmanuel Béziat",
-		"email": "contact@emmanuelbeziat.com"
-	},
+    "name": "Emmanuel Béziat",
+    "email": "contact@emmanuelbeziat.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/EmmanuelBeziat/emmanuelbeziat-images/issues"
   },
-  "homepage": "https://github.com/EmmanuelBeziat/emmanuelbeziat-images#readme"
+  "homepage": "https://github.com/EmmanuelBeziat/emmanuelbeziat-images#readme",
+  "dependencies": {
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard": "^39.0.0"
+  }
 }

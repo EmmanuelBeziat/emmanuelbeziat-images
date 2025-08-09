@@ -28,8 +28,7 @@ p {
 
 	:where(img, svg) {
 		grid-area: picture;
-		justify-self: center;
-		align-self: center;
+		place-self: center center;
 	}
 
 	svg {
