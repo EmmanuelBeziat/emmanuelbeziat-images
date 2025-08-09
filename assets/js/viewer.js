@@ -2,31 +2,47 @@ class Viewer {
 	constructor (elements) {
 		this.links = elements
 
-		if (!this.links) return
-		this.links.forEach(link => {
-			this.handleClick(link)
-		})
+		if (!this.links || !this.links.length) return
+		this.links.forEach(link => this.handleClick(link))
 	}
 
 	handleClick (link) {
 		link.addEventListener('click', event => {
 			event.preventDefault()
-			const url = event.target.href
+			const url = link.href
+
 			navigator.clipboard.writeText(url)
 				.then(() => {
-					tippy('#myButton', {
-						content: 'URL Copiée',
-						arrow: false,
-						delay: [100, 2000]
-					})
+					if (window.tippy) {
+						const tip = link._tippy || window.tippy(link, {
+							trigger: 'manual',
+							arrow: false,
+							placement: 'bottom',
+							hideOnClick: false
+						})
+						tip.setContent('URL copiée')
+						tip.show()
+						setTimeout(() => tip.hide(), 1500)
+					}
 				})
 				.catch(err => {
-					tippy('#myButton', {
-						content: err.message,
-						arrow: false,
-						delay: [100, 2000]
-					})
+					if (window.tippy) {
+						const tip = link._tippy || window.tippy(link, {
+							trigger: 'manual',
+							arrow: false,
+							placement: 'bottom',
+							hideOnClick: false
+						})
+						tip.setContent(err.message)
+						tip.show()
+						setTimeout(() => tip.hide(), 2000)
+					}
 				})
 		})
 	}
+}
+
+// Expose global for inline usage in HTML
+if (typeof window !== 'undefined') {
+	window.Viewer = Viewer
 }

@@ -19,8 +19,15 @@ $directory = dirname($_SERVER['SCRIPT_FILENAME']);
 $allItems = new DirectoryIterator($directory);
 $files = [];
 
+$allowedFormats = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif', 'svg', 'bmp', 'heic'];
+
 foreach ($allItems as $fileInfo) {
-	if (!$fileInfo->isDot() && !$fileInfo->isDir() && !$fileInfo->isLink() && !in_array(strtolower($fileInfo->getExtension()), ['php', 'html']) ) {
+	if (
+		!$fileInfo->isDot()
+		&& !$fileInfo->isDir()
+		&& !$fileInfo->isLink()
+		&& in_array(strtolower($fileInfo->getExtension()), $allowedFormats, true)
+	) {
 		$files[] = (object) [
 			'path' => htmlspecialchars($fileInfo->getPathname()),
 			'name' => htmlspecialchars($fileInfo->getFilename()),
@@ -29,12 +36,12 @@ foreach ($allItems as $fileInfo) {
 	}
 }
 
-asort($files);
+// Trier par nom de fichier (ordre naturel, insensible à la casse)
+usort($files, function ($a, $b) {
+	return strcasecmp($a->name, $b->name);
+});
 
-if (empty($files)) {
-	header("Location: /404.html");
-	exit;
-}
+$isEmpty = empty($files);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -57,25 +64,32 @@ if (empty($files)) {
 		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png?v=1">
 		<meta name="apple-mobile-web-app-title" content="EB::Images">
 		<link rel="manifest" href="assets/favicons/site.webmanifest">
+		<?php if ($isEmpty) : ?>
 		<script defer src="https://unpkg.com/@popperjs/core@2"></script>
 		<script defer src="https://unpkg.com/tippy.js@6"></script>
 		<script defer src="/assets/js/viewer.js"></script>
 		<script defer>
 			new Viewer(document.querySelectorAll('[data-action="copy"]'))
 		</script>
+		<?php endif; ?>
 	</head>
 
 	<body>
 		<div class="site">
-			<main class="main gallery">
-				<?php foreach ($files as $file) : ?>
-				<a href="<?= $file->name ?>" class="image" data-action="copy">
-					<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy">
-					<div class="image-infos">
-						<?= $file->name ?> <br>(<?= $file->size ?>)
-					</div>
-				</a>
-				<?php endforeach; ?>
+			<main class="<?= $isEmpty ? 'main' : 'main gallery' ?>">
+				<?php if ($isEmpty) : ?>
+					<h1>Aucun fichier disponible</h1>
+					<p>Ce dossier ne contient aucune image pour le moment.</p>
+				<?php else : ?>
+					<?php foreach ($files as $file) : ?>
+						<a href="<?= $file->name ?>" class="image" data-action="copy">
+							<img src="<?= $file->name ?>" alt="<?= $file->name ?>" loading="lazy" decoding="async" fetchpriority="low">
+							<div class="image-infos">
+								<?= $file->name ?> <br>(<?= $file->size ?>)
+							</div>
+						</a>
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</main>
 		</div>
 	</body>
