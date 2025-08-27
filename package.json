@@ -4,7 +4,7 @@
   "description": "🖼️ Image management",
   "scripts": {
     "lint:style": "stylelint assets/css/*.css --fix",
-		"lint:script": "npx eslint src --ext .vue,.js,.jsx,.cjs,.mjs",
+    "lint:script": "npx eslint src --ext .vue,.js,.jsx,.cjs,.mjs",
     "optimize": ""
   },
   "repository": {
@@ -14,7 +14,7 @@
   "keywords": [
     "php",
     "images",
-		"cdn"
+    "cdn"
   ],
   "author": {
     "name": "Emmanuel Béziat",
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/EmmanuelBeziat/emmanuelbeziat-images#readme",
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "eslint": "^9.33.0",
+    "@eslint/js": "^9.34.0",
+    "eslint": "^9.34.0",
     "globals": "^16.3.0",
     "stylelint": "^16.23.1",
     "stylelint-config-standard": "^39.0.0"
