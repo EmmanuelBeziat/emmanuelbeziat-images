@@ -3,6 +3,8 @@
   "version": "1.0.2",
   "description": "🖼️ Image management",
   "scripts": {
+    "dev:backend": "cd backend && python -m uvicorn app.main:app --reload",
+    "dev:frontend": "C:\\MAMP\\bin\\php\\php5.5.38\\php.exe -S localhost:8050 router.php",
     "lint:style": "stylelint assets/css/*.css --fix",
     "lint:script": "npx eslint src --ext .vue,.js,.jsx,.cjs,.mjs",
     "optimize": ""
@@ -26,10 +28,10 @@
   },
   "homepage": "https://github.com/EmmanuelBeziat/emmanuelbeziat-images#readme",
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "eslint": "^9.39.1",
-    "globals": "^16.5.0",
-    "stylelint": "^16.25.0",
-    "stylelint-config-standard": "^39.0.1"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "stylelint": "^17.14.0",
+    "stylelint-config-standard": "^40.0.0"
   }
 }
