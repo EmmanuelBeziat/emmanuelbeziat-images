@@ -130,7 +130,10 @@ dist
 .pnp.*
 
 /media/
+/doc/agents
+
+# LLM
 AGENTS.md
 CLAUDE.md
+.claude
 .kilo
-/doc/agents
